@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View the grade-wise enrollment status, section details, seat capacity, and student distributions at Aura Crest Academy.">
+  <title>Student Enrollment Status | Aura Crest Academy</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Special Styles for Enrollment Dashboard */
+    .enrollment-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .enrollment-stat-card {
+      background-color: var(--bg-white);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--primary);
+    }
+    
+    .enrollment-stat-card.accent {
+      border-top-color: var(--secondary);
+    }
+    
+    .enrollment-stat-icon {
+      font-size: 2.2rem;
+      color: var(--primary-accent);
+      margin-bottom: 1rem;
+    }
+    
+    .enrollment-stat-card.accent .enrollment-stat-icon {
+      color: var(--secondary-hover);
+    }
+    
+    .enrollment-stat-val {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .enrollment-stat-lbl {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    
+    /* Visual CSS Chart */
+    .chart-container {
+      background-color: var(--bg-white);
+      border-radius: var(--radius-md);
+      padding: 3rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      margin-bottom: 4rem;
+    }
+    
+    .chart-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .chart-bar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    
+    .chart-row {
+      display: grid;
+      grid-template-columns: 100px 1fr 60px;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .chart-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--primary-light);
+    }
+    
+    .chart-bar-bg {
+      height: 24px;
+      background-color: var(--bg-light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .chart-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-light), var(--primary-accent));
+      border-radius: 12px;
+      transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
+      width: 0; /* Animated via load / css transition */
+    }
+    
+    .chart-bar-fill.primary-fill {
+      background: linear-gradient(90deg, var(--primary-light), var(--primary-accent));
+    }
+    
+    .chart-bar-fill.middle-fill {
+      background: linear-gradient(90deg, var(--primary-accent), var(--secondary));
+    }
+    
+    .chart-bar-fill.high-fill {
+      background: linear-gradient(90deg, var(--secondary), var(--secondary-hover));
+    }
+    
+    .chart-val {
+      font-weight: 700;
+      color: var(--primary);
+      text-align: right;
+    }
+    
+    /* Enrollment Badges */
+    .status-badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    
+    .status-open {
+      background-color: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #BBF7D0;
+    }
+    
+    .status-limited {
+      background-color: #FEF9C3;
+      color: #A16207;
+      border: 1px solid #FEF08A;
+    }
+    
+    .status-full {
+      background-color: #FEE2E2;
+      color: #B91C1C;
+      border: 1px solid #FCA5A5;
+    }
+    
+    .enrollment-cta-card {
+      background: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.95)), url('images/library.png') no-repeat center center/cover;
+      border-radius: var(--radius-md);
+      padding: 4rem 3rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 4rem;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .enrollment-cta-card h3 {
+      color: var(--text-light);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .enrollment-cta-card p {
+      color: rgba(248, 250, 252, 0.8);
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+    }
+    
+    @media (max-width: 768px) {
+      .enrollment-summary-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      
+      .chart-container {
+        padding: 1.5rem;
+      }
+      
+      .chart-row {
+        grid-template-columns: 80px 1fr 40px;
+        gap: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .enrollment-summary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="mainHeader">
+    <div class="container header-container">
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">Aura Crest <span>Academy</span></div>
+      </a>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav id="navbar">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link" id="navHome">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="navAbout">About Us</a></li>
+          <li><a href="academics.html" class="nav-link" id="navAcademics">Academics</a></li>
+          <li><a href="admissions.html" class="nav-link" id="navAdmissions">Admissions</a></li>
+          <li><a href="enrollment.html" class="nav-link active" id="navEnrollment">Enrollment</a></li>
+          <li><a href="contact.html" class="nav-link" id="navContact">Contact Us</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="admissions.html" class="btn btn-secondary btn-sm" id="navApplyBtn">Apply Now</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero" id="enrollmentHero" style="background-image: url('images/library.png');">
+      <div class="container page-hero-content">
+        <h1 class="page-hero-title" id="enrollmentHeroTitle">Enrollment Dashboard</h1>
+        <div class="breadcrumbs" id="enrollmentBreadcrumbs">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Enrollment Status</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enrollment Summary Stats -->
+    <section class="section" id="enrollmentOverview">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title" id="summaryTitle">Current Enrollment Summary</h2>
+          <p class="section-subtitle" id="summarySub">An analytical overview of the current student population and school capacities for the 2026 academic term.</p>
+        </div>
+        
+        <div class="enrollment-summary-grid" id="summaryGrid">
+          <!-- Total -->
+          <div class="enrollment-stat-card" id="cardTotal">
+            <div class="enrollment-stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="enrollment-stat-val">1,240</div>
+            <div class="enrollment-stat-lbl">Total Enrolled Students</div>
+          </div>
+          
+          <!-- Teacher Student Ratio -->
+          <div class="enrollment-stat-card accent" id="cardRatio">
+            <div class="enrollment-stat-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div class="enrollment-stat-val">1:13</div>
+            <div class="enrollment-stat-lbl">Teacher-Student Ratio</div>
+          </div>
+          
+          <!-- Sections -->
+          <div class="enrollment-stat-card" id="cardSections">
+            <div class="enrollment-stat-icon"><i class="fa-solid fa-school-flag"></i></div>
+            <div class="enrollment-stat-val">48</div>
+            <div class="enrollment-stat-lbl">Total Class Sections</div>
+          </div>
+          
+          <!-- Placement -->
+          <div class="enrollment-stat-card accent" id="cardCapacity">
+            <div class="enrollment-stat-icon"><i class="fa-solid fa-chair"></i></div>
+            <div class="enrollment-stat-val">92%</div>
+            <div class="enrollment-stat-lbl">Campus Seat Capacity</div>
+          </div>
+        </div>
+        
+        <!-- CSS Visual Bar Chart -->
+        <div class="chart-container" id="chartContainer">
+          <h3 class="chart-title" id="chartTitle"><i class="fa-solid fa-chart-bar" style="color: var(--secondary);"></i> Section-wise Student Distribution</h3>
+          <div class="chart-bar-list">
+            <!-- Primary -->
+            <div class="chart-row">
+              <div class="chart-label">Primary (1-5)</div>
+              <div class="chart-bar-bg">
+                <div class="chart-bar-fill primary-fill" style="width: 82%;"></div>
+              </div>
+              <div class="chart-val">520</div>
+            </div>
+            
+            <!-- Middle -->
+            <div class="chart-row">
+              <div class="chart-label">Middle (6-8)</div>
+              <div class="chart-bar-bg">
+                <div class="chart-bar-fill middle-fill" style="width: 60%;"></div>
+              </div>
+              <div class="chart-val">380</div>
+            </div>
+            
+            <!-- High -->
+            <div class="chart-row">
+              <div class="chart-label">High (9-12)</div>
+              <div class="chart-bar-bg">
+                <div class="chart-bar-fill high-fill" style="width: 53%;"></div>
+              </div>
+              <div class="chart-val">340</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grade-wise Detailed Table -->
+        <div class="text-center">
+          <h2 class="section-title" id="tableTitleText">Grade-wise Enrollment Ledger</h2>
+          <p class="section-subtitle" id="tableSubText">Detailed student count, section count, average section size, and current admission availability status.</p>
+        </div>
+        
+        <div class="fees-container" id="enrollmentLedgerContainer">
+          <div class="table-responsive">
+            <table id="enrollmentLedgerTable">
+              <thead>
+                <tr>
+                  <th>Grade Level</th>
+                  <th>Enrolled Students</th>
+                  <th>Active Sections</th>
+                  <th>Avg Class Size</th>
+                  <th>Admission Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Primary -->
+                <tr style="background-color: rgba(11,19,43,0.02); font-weight: 700;"><td colspan="5">PRIMARY SCHOOL</td></tr>
+                <tr>
+                  <td>Grade 1</td>
+                  <td>105</td>
+                  <td>4 Sections</td>
+                  <td>26 Students</td>
+                  <td><span class="status-badge status-full">Full</span></td>
+                </tr>
+                <tr>
+                  <td>Grade 2</td>
+                  <td>102</td>
+                  <td>4 Sections</td>
+                  <td>25 Students</td>
+                  <td><span class="status-badge status-limited">Limited</span></td>
+                </tr>
+                <tr>
+                  <td>Grade 3</td>
+                  <td>110</td>
+                  <td>4 Sections</td>
+                  <td>27 Students</td>
+                  <td><span class="status-badge status-full">Full</span></td>
+                </tr>
+                <tr>
+                  <td>Grade 4</td>
+                  <td>98</td>
+                  <td>4 Sections</td>
+                  <td>24 Students</td>
+                  <td><span class="status-badge status-open">Open</span></td>
+                </tr>
+                <tr>
+                  <td>Grade 5</td>
+                  <td>105</td>
+                  <td>4 Sections</td>
+                  <td>26 Students</td>
+                  <td><span class="status-badge status-limited">Limited</span></td>
+                </tr>
+                
+                <!-- Middle -->
+                <tr style="background-color: rgba(11,19,43,0.02); font-weight: 700;"><td colspan="5">MIDDLE SCHOOL</td></tr>
+                <tr>
+                  <td>Grade 6</td>
+                  <td>130</td>
+                  <td>5 Sections</td>
+                  <td>26 Students</td>
+                  <td><span class="status-badge status-limited">Limited</span></td>
+                </tr>
+                <tr>
+                  <td>Grade 7</td>
+                  <td>122</td>
+                  <td>5 Sections</td>
+                  <td>24 Students</td>
+                  <td><span class="status-badge status-open">Open</span></td>
+                </tr>
+                <tr>
+                  <td>Grade 8</td>
+                  <td>128</td>
+                  <td>5 Sections</td>
+                  <td>25 Students</td>
+                  <td><span class="status-badge status-full">Full</span></td>
+                </tr>
+                
+                <!-- High -->
+                <tr style="background-color: rgba(11,19,43,0.02); font-weight: 700;"><td colspan="5">HIGH SCHOOL</td></tr>
+                <tr>
+                  <td>Grade 9</td>
+                  <td>92</td>
+                  <td>4 Sections</td>
+                  <td>23 Students</td>
+                  <td><span class="status-badge status-open">Open</span></td>
+                </tr>
+                <tr>
+                  <td>Grade 10</td>
+                  <td>88</td>
+                  <td>4 Sections</td>
+                  <td>22 Students</td>
+                  <td><span class="status-badge status-limited">Limited</span></td>
+                </tr>
+                <tr>
+                  <td>Grade 11</td>
+                  <td>82</td>
+                  <td>3 Sections</td>
+                  <td>27 Students</td>
+                  <td><span class="status-badge status-full">Full</span></td>
+                </tr>
+                <tr>
+                  <td>Grade 12</td>
+                  <td>78</td>
+                  <td>3 Sections</td>
+                  <td>26 Students</td>
+                  <td><span class="status-badge status-full">Full</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="fee-note" id="enrollmentNote">
+            <strong>Admissions Notice:</strong> 
+            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; line-height: 1.5;">
+              <li><strong>Open:</strong> Applications are accepted for immediate screening and enrollment.</li>
+              <li><strong>Limited:</strong> Very few seats are vacant. Screenings are prioritized by application date.</li>
+              <li><strong>Full:</strong> No vacant seats. Successful applicants will be placed on the waitlist for the next term.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="enrollment-cta-card" id="enrollmentCta">
+          <h3>Secure Your Spot Today</h3>
+          <p>Join our thriving academic community. Reach out to our admissions department or submit an online inquiry to begin the enrollment process.</p>
+          <a href="admissions.html" class="btn btn-secondary"><i class="fa-solid fa-graduation-cap"></i> Begin Inquiry Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-col" id="footerColAbout">
+        <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">
+          <div class="logo-icon" style="color: #0B132B;">A</div>
+          <div class="logo-text" style="color: #F8FAFC;">Aura Crest <span>Academy</span></div>
+        </a>
+        <p>Aura Crest Academy is a global community of thinkers and innovators. We strive to provide premium education that inspires excellence and character.</p>
+        <div class="social-links" id="footerSocials">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col" id="footerColLinks">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Our School</a></li>
+          <li><a href="academics.html">Academic Programs</a></li>
+          <li><a href="admissions.html">Admission Procedure</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="admissions.html">Apply Online</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col" id="footerColContact">
+        <h4>Contact Us</h4>
+        <ul class="footer-contact">
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>1024 Academy Heights Boulevard,<br>Crestwood City, CW 54203</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <span>+1 (555) 123-4567<br>+1 (555) 123-4568</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <span>admissions@auracrest.edu<br>info@auracrest.edu</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <div id="footerCopy">&copy; 2026 Aura Crest Academy. All rights reserved. Built for showcase.</div>
+      <div class="footer-bottom-links" id="footerLegal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>

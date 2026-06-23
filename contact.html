@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get in touch with Aura Crest Academy. View our campus location, office hours, and contact details, and browse our FAQs.">
+  <title>Contact Us | Aura Crest Academy</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="mainHeader">
+    <div class="container header-container">
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">Aura Crest <span>Academy</span></div>
+      </a>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav id="navbar">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link" id="navHome">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="navAbout">About Us</a></li>
+          <li><a href="academics.html" class="nav-link" id="navAcademics">Academics</a></li>
+          <li><a href="admissions.html" class="nav-link" id="navAdmissions">Admissions</a></li>
+          <li><a href="enrollment.html" class="nav-link" id="navEnrollment">Enrollment</a></li>
+          <li><a href="contact.html" class="nav-link active" id="navContact">Contact Us</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="admissions.html" class="btn btn-secondary btn-sm" id="navApplyBtn">Apply Now</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero" id="contactHero" style="background-image: url('images/sports.png');">
+      <div class="container page-hero-content">
+        <h1 class="page-hero-title" id="contactHeroTitle">Contact & Support</h1>
+        <div class="breadcrumbs" id="contactBreadcrumbs">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Contact Us</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact details and form -->
+    <section class="section" id="contactSection">
+      <div class="container">
+        <div class="contact-grid" id="contactGrid">
+          
+          <!-- Contact Info Column -->
+          <div class="contact-info-cards" id="contactInfoCards">
+            <!-- Card 1: Address -->
+            <div class="contact-info-card" id="cardAddress">
+              <div class="contact-info-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+              <div class="contact-info-details">
+                <h3>Campus Address</h3>
+                <p>1024 Academy Heights Boulevard,<br>Crestwood City, CW 54203</p>
+              </div>
+            </div>
+            
+            <!-- Card 2: Phone -->
+            <div class="contact-info-card" id="cardPhone">
+              <div class="contact-info-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div class="contact-info-details">
+                <h3>Phone & Fax</h3>
+                <p>General Office: +1 (555) 123-4567<br>Admissions: +1 (555) 123-4568<br>Fax: +1 (555) 123-4569</p>
+              </div>
+            </div>
+            
+            <!-- Card 3: Email -->
+            <div class="contact-info-card" id="cardEmail">
+              <div class="contact-info-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+              <div class="contact-info-details">
+                <h3>Electronic Mail</h3>
+                <p>General Inquiries: info@auracrest.edu<br>Admissions Desk: admissions@auracrest.edu</p>
+              </div>
+            </div>
+            
+            <!-- Card 4: Hours -->
+            <div class="contact-info-card" id="cardHours">
+              <div class="contact-info-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="contact-info-details">
+                <h3>Office Hours</h3>
+                <p>Monday - Friday: 8:00 AM - 4:30 PM<br>Saturday & Sunday: Closed</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Contact Form Column -->
+          <div class="form-container" id="contactFormContainer" style="margin: 0; padding: 3rem; width: 100%;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Send a Message</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">Have any queries or need assistance? Fill out the form, and our front desk will direct your message to the appropriate department.</p>
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="contactName">Your Full Name *</label>
+                <input type="text" id="contactName" class="form-control" placeholder="Jane Doe" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="contactEmail">Email Address *</label>
+                <input type="email" id="contactEmail" class="form-control" placeholder="jane.doe@example.com" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="contactSubject">Subject *</label>
+                <input type="text" id="contactSubject" class="form-control" placeholder="Inquiry about sports clubs" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="contactMessage">Message Details *</label>
+                <textarea id="contactMessage" class="form-control" placeholder="Write your message here..." required></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary" id="submitContactBtn" style="width: 100%;"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Map Placeholder -->
+    <section class="section" id="locationMap" style="padding-top: 0;">
+      <div class="container">
+        <div class="map-placeholder" id="mapPlaceholder">
+          <div class="map-card" id="mapCard">
+            <i class="fa-solid fa-location-dot"></i>
+            <h4>Aura Crest Academy</h4>
+            <p>1024 Academy Heights Boulevard, Crestwood City, CW 54203</p>
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm"><i class="fa-solid fa-directions"></i> Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="section faq-section" id="faq" style="background-color: var(--bg-light); border-top: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title" id="faqTitle">Frequently Asked Questions</h2>
+          <p class="section-subtitle" id="faqSub">Find quick answers to common queries regarding administration, transport, uniforms, and student life.</p>
+        </div>
+        
+        <div class="faq-container" id="faqAccordion">
+          <!-- FAQ 1 -->
+          <div class="faq-item" id="faqItem1">
+            <div class="faq-header">
+              <span>What are the school operating hours?</span>
+              <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-content">
+              <p>Regular classes operate from 8:00 AM to 3:00 PM, Monday through Friday. Extra-curricular clubs and coaching sessions run from 3:15 PM to 4:30 PM.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ 2 -->
+          <div class="faq-item" id="faqItem2">
+            <div class="faq-header">
+              <span>Is school transport facility available?</span>
+              <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-content">
+              <p>Yes, Aura Crest Academy operates a fleet of air-conditioned school buses that cover all major neighborhoods and sub-districts in Crestwood City. Bus routes, timetables, and quarterly bus pass fees are available upon request from the administration department.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ 3 -->
+          <div class="faq-item" id="faqItem3">
+            <div class="faq-header">
+              <span>Do you offer scholarships or financial aid?</span>
+              <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-content">
+              <p>Yes, we offer Academic Merit Scholarships and Sports Excellence Scholarships for High School students (Grades 9-12). Applications open during the month of March each year. Need-based financial aid is also evaluated on a case-by-case basis by the board.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ 4 -->
+          <div class="faq-item" id="faqItem4">
+            <div class="faq-header">
+              <span>What is the school policy on uniforms?</span>
+              <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-content">
+              <p>All enrolled students must wear the designated school uniform. Uniform kits consist of formal blazers (for assemblies), dress shirts, trousers or pleated skirts, and formal leather shoes. Physical Education kits are worn on days containing sports sessions. Catalogues and supplier details are handed to parents on enrollment completion.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-col" id="footerColAbout">
+        <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">
+          <div class="logo-icon" style="color: #0B132B;">A</div>
+          <div class="logo-text" style="color: #F8FAFC;">Aura Crest <span>Academy</span></div>
+        </a>
+        <p>Aura Crest Academy is a global community of thinkers and innovators. We strive to provide premium education that inspires excellence and character.</p>
+        <div class="social-links" id="footerSocials">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col" id="footerColLinks">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Our School</a></li>
+          <li><a href="academics.html">Academic Programs</a></li>
+          <li><a href="admissions.html">Admission Procedure</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="admissions.html">Apply Online</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col" id="footerColContact">
+        <h4>Contact Us</h4>
+        <ul class="footer-contact">
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>1024 Academy Heights Boulevard,<br>Crestwood City, CW 54203</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <span>+1 (555) 123-4567<br>+1 (555) 123-4568</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <span>admissions@auracrest.edu<br>info@auracrest.edu</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <div id="footerCopy">&copy; 2026 Aura Crest Academy. All rights reserved. Built for showcase.</div>
+      <div class="footer-bottom-links" id="footerLegal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>

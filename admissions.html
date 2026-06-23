@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about our step-by-step admissions process, check our yearly fee structures, and submit an online enrollment inquiry.">
+  <title>Admissions | Aura Crest Academy</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="mainHeader">
+    <div class="container header-container">
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">Aura Crest <span>Academy</span></div>
+      </a>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav id="navbar">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link" id="navHome">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="navAbout">About Us</a></li>
+          <li><a href="academics.html" class="nav-link" id="navAcademics">Academics</a></li>
+          <li><a href="admissions.html" class="nav-link active" id="navAdmissions">Admissions</a></li>
+          <li><a href="enrollment.html" class="nav-link" id="navEnrollment">Enrollment</a></li>
+          <li><a href="contact.html" class="nav-link" id="navContact">Contact Us</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="admissions.html" class="btn btn-secondary btn-sm" id="navApplyBtn">Apply Now</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero" id="admissionsHero" style="background-image: url('images/hero_campus.png');">
+      <div class="container page-hero-content">
+        <h1 class="page-hero-title" id="admissionsHeroTitle">Admissions & Entry</h1>
+        <div class="breadcrumbs" id="admissionsBreadcrumbs">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Admissions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admission Process Steps -->
+    <section class="section" id="admissionProcess">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title" id="processTitle">Admissions Journey</h2>
+          <p class="section-subtitle" id="processSub">Our enrollment procedure is designed to be clear, welcoming, and thorough for prospective families.</p>
+        </div>
+        
+        <div class="process-timeline" id="processTimeline">
+          <!-- Step 1 -->
+          <div class="process-step" id="step1">
+            <div class="step-num">01</div>
+            <h3>Submit Inquiry</h3>
+            <p>Fill out the online admission form below to express interest and provide basic student details.</p>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="process-step" id="step2">
+            <div class="step-num">02</div>
+            <h3>Campus Visit</h3>
+            <p>Attend our open campus tours, meet our leadership team, and discuss educational programs.</p>
+          </div>
+          
+          <!-- Step 3 -->
+          <div class="process-step" id="step3">
+            <div class="step-num">03</div>
+            <h3>Assessment</h3>
+            <p>The student participates in a friendly diagnostic assessment to evaluate academic skills.</p>
+          </div>
+          
+          <!-- Step 4 -->
+          <div class="process-step" id="step4">
+            <div class="step-num">04</div>
+            <h3>Enrollment</h3>
+            <p>Submit registration documents, complete fee deposit, and receive student onboarding kit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fee Structure Section -->
+    <section class="section" id="feeStructure" style="background-color: var(--bg-light); border-top: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title" id="feesTitleText">Fee Structure</h2>
+          <p class="section-subtitle" id="feesSubText">A transparent overview of fees and tuition for the upcoming academic session.</p>
+        </div>
+        
+        <div class="fees-container" id="feesContainer">
+          <div class="table-responsive">
+            <table id="feesTable">
+              <thead>
+                <tr>
+                  <th>Academic Grade</th>
+                  <th>Registration Fee (One-Time)</th>
+                  <th>Tuition Fee (Per Term)</th>
+                  <th>Activity & Tech Fee (Annual)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Primary School (Grades 1-5)</td>
+                  <td>$200</td>
+                  <td>$3,500</td>
+                  <td>$400</td>
+                </tr>
+                <tr>
+                  <td>Middle School (Grades 6-8)</td>
+                  <td>$250</td>
+                  <td>$4,200</td>
+                  <td>$500</td>
+                </tr>
+                <tr>
+                  <td>High School (Grades 9-12)</td>
+                  <td>$300</td>
+                  <td>$5,500</td>
+                  <td>$650</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="fee-note" id="feesNote">
+            <strong>Please Note:</strong> 
+            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; line-height: 1.5;">
+              <li>Tuition fees are payable in 3 installments (one per term) before the commencement of each term.</li>
+              <li>A sibling discount of 10% on tuition is applicable for the second and subsequent child enrolled at Aura Crest.</li>
+              <li>Fees cover smart classroom tools, laboratory access, and general extra-curricular club materials. External exam and uniforms are charged separately.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admission Form Section -->
+    <section class="section" id="admissionInquiryForm">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title" id="formTitle">Enrollment Inquiry</h2>
+          <p class="section-subtitle" id="formSub">Fill out this online inquiry form, and our admissions department will contact you within 24-48 business hours.</p>
+        </div>
+        
+        <div class="form-container" id="admissionFormContainer">
+          <form id="admissionForm" novalidate>
+            <div class="form-grid">
+              <!-- Guardian Name -->
+              <div class="form-group">
+                <label for="guardianName">Parent / Guardian Name *</label>
+                <input type="text" id="guardianName" class="form-control" placeholder="John Doe" required>
+              </div>
+              
+              <!-- Contact Phone -->
+              <div class="form-group">
+                <label for="guardianPhone">Contact Phone Number *</label>
+                <input type="tel" id="guardianPhone" class="form-control" placeholder="+1 (555) 000-0000" required>
+              </div>
+              
+              <!-- Guardian Email -->
+              <div class="form-group">
+                <label for="guardianEmail">Email Address *</label>
+                <input type="email" id="guardianEmail" class="form-control" placeholder="john.doe@example.com" required>
+              </div>
+              
+              <!-- Child Name -->
+              <div class="form-group">
+                <label for="childName">Child's Full Name *</label>
+                <input type="text" id="childName" class="form-control" placeholder="Sarah Doe" required>
+              </div>
+              
+              <!-- Grade Level Choice -->
+              <div class="form-group">
+                <label for="childGrade">Grade Level applying for *</label>
+                <select id="childGrade" class="form-control" required>
+                  <option value="" disabled selected>Select Grade</option>
+                  <optgroup label="Primary School">
+                    <option value="grade1">Grade 1</option>
+                    <option value="grade2">Grade 2</option>
+                    <option value="grade3">Grade 3</option>
+                    <option value="grade4">Grade 4</option>
+                    <option value="grade5">Grade 5</option>
+                  </optgroup>
+                  <optgroup label="Middle School">
+                    <option value="grade6">Grade 6</option>
+                    <option value="grade7">Grade 7</option>
+                    <option value="grade8">Grade 8</option>
+                  </optgroup>
+                  <optgroup label="High School">
+                    <option value="grade9">Grade 9</option>
+                    <option value="grade10">Grade 10</option>
+                    <option value="grade11">Grade 11</option>
+                    <option value="grade12">Grade 12</option>
+                  </optgroup>
+                </select>
+              </div>
+              
+              <!-- Child DOB -->
+              <div class="form-group">
+                <label for="childDob">Child's Date of Birth *</label>
+                <input type="date" id="childDob" class="form-control" required>
+              </div>
+              
+              <!-- Additional Comments -->
+              <div class="form-group full-width">
+                <label for="additionalNotes">Special Interests / Educational Needs</label>
+                <textarea id="additionalNotes" class="form-control" placeholder="Describe any medical needs, sporting interests, or specific academic requirements..."></textarea>
+              </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 2rem;">
+              <button type="submit" class="btn btn-primary" id="submitInquiryBtn"><i class="fa-solid fa-paper-plane"></i> Submit Inquiry Details</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-col" id="footerColAbout">
+        <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">
+          <div class="logo-icon" style="color: #0B132B;">A</div>
+          <div class="logo-text" style="color: #F8FAFC;">Aura Crest <span>Academy</span></div>
+        </a>
+        <p>Aura Crest Academy is a global community of thinkers and innovators. We strive to provide premium education that inspires excellence and character.</p>
+        <div class="social-links" id="footerSocials">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col" id="footerColLinks">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Our School</a></li>
+          <li><a href="academics.html">Academic Programs</a></li>
+          <li><a href="admissions.html">Admission Procedure</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="admissions.html">Apply Online</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col" id="footerColContact">
+        <h4>Contact Us</h4>
+        <ul class="footer-contact">
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>1024 Academy Heights Boulevard,<br>Crestwood City, CW 54203</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <span>+1 (555) 123-4567<br>+1 (555) 123-4568</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <span>admissions@auracrest.edu<br>info@auracrest.edu</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <div id="footerCopy">&copy; 2026 Aura Crest Academy. All rights reserved. Built for showcase.</div>
+      <div class="footer-bottom-links" id="footerLegal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>

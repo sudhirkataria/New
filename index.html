@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Aura Crest Academy, a premium institution dedicated to academic excellence, holistic development, and nurturing future global leaders.">
+  <title>Aura Crest Academy | Nurturing Leaders of Tomorrow</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="mainHeader">
+    <div class="container header-container">
+      <a href="index.html" class="logo" id="headerLogo">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">Aura Crest <span>Academy</span></div>
+      </a>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav id="navbar">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link active" id="navHome">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="navAbout">About Us</a></li>
+          <li><a href="academics.html" class="nav-link" id="navAcademics">Academics</a></li>
+          <li><a href="admissions.html" class="nav-link" id="navAdmissions">Admissions</a></li>
+          <li><a href="enrollment.html" class="nav-link" id="navEnrollment">Enrollment</a></li>
+          <li><a href="contact.html" class="nav-link" id="navContact">Contact Us</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="admissions.html" class="btn btn-secondary btn-sm" id="navApplyBtn">Apply Now</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="homeHero">
+      <div class="container hero-content">
+        <span class="badge" id="heroBadge">Admissions Open 2026-27</span>
+        <h1 class="hero-title" id="heroTitle">Nurturing Minds,<br><span>Shaping Futures</span></h1>
+        <p class="hero-desc" id="heroDescription">Welcome to Aura Crest Academy, where academic rigor meets creative discovery. We empower students to think critically, lead ethically, and thrive in an ever-changing world.</p>
+        <div class="hero-actions" id="heroActions">
+          <a href="admissions.html" class="btn btn-secondary" id="heroApplyBtn"><i class="fa-solid fa-graduation-cap"></i> Begin Inquiry</a>
+          <a href="about.html" class="btn btn-outline-white" id="heroExploreBtn">Explore Campus <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section class="stats" id="statsSection">
+      <div class="container">
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card" id="statYears">
+            <div class="stat-number" data-target="15" data-suffix="+">0</div>
+            <div class="stat-label">Years of Excellence</div>
+          </div>
+          <div class="stat-card" id="statStudents">
+            <div class="stat-number" data-target="1200" data-suffix="+">0</div>
+            <div class="stat-label">Enrolled Students</div>
+          </div>
+          <div class="stat-card" id="statFaculty">
+            <div class="stat-number" data-target="95" data-suffix="+">0</div>
+            <div class="stat-label">Expert Faculty</div>
+          </div>
+          <div class="stat-card" id="statPlacement">
+            <div class="stat-number" data-target="100" data-suffix="%">0</div>
+            <div class="stat-label">University Placement</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features / Core Values Section -->
+    <section class="section features" id="whyChooseUs">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title" id="whyChooseUsTitle">Why Choose Aura Crest</h2>
+          <p class="section-subtitle" id="whyChooseUsSub">Our holistic approach ensures students are prepared for global challenges and academic success.</p>
+        </div>
+        <div class="features-grid" id="featuresGrid">
+          <div class="feature-card" id="featureAcademic">
+            <div class="feature-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+            <h3>Academic Excellence</h3>
+            <p>Our comprehensive curriculum is designed to stimulate intellectual curiosity, build critical thinking, and prepare students for leading global universities.</p>
+          </div>
+          <div class="feature-card" id="featureDevelopment">
+            <div class="feature-icon"><i class="fa-solid fa-palette"></i></div>
+            <h3>Holistic Development</h3>
+            <p>From visual arts and musical ensembles to competitive athletics and public speaking clubs, we nurture diverse interests and talents.</p>
+          </div>
+          <div class="feature-card" id="featureFacilities">
+            <div class="feature-icon"><i class="fa-solid fa-flask"></i></div>
+            <h3>Modern Campus</h3>
+            <p>Students learn in an environment equipped with interactive smart boards, state-of-the-art science labs, high-tech libraries, and advanced sports arenas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest News / Highlights Section -->
+    <section class="section news" id="latestNews">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title" id="newsTitle">Campus Highlights</h2>
+          <p class="section-subtitle" id="newsSub">Stay updated with the latest events, achievements, and notices from the Aura Crest community.</p>
+        </div>
+        <div class="news-grid" id="newsGrid">
+          <!-- News Card 1 -->
+          <article class="news-card" id="newsCard1">
+            <div class="news-image">
+              <span class="news-tag">Achievement</span>
+              <img src="images/hero_campus.png" alt="Aura Crest Academy Campus Banner">
+            </div>
+            <div class="news-body">
+              <div class="news-date"><i class="fa-regular fa-calendar"></i> June 15, 2026</div>
+              <h3 class="news-title">Aura Crest Ranked top 10 for Academic Excellence</h3>
+              <p class="news-desc">We are proud to announce that Aura Crest Academy has been ranked among the top 10 academic institutions in the region for the third consecutive year.</p>
+              <a href="about.html" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+          
+          <!-- News Card 2 -->
+          <article class="news-card" id="newsCard2">
+            <div class="news-image">
+              <span class="news-tag">Academics</span>
+              <img src="images/laboratory.png" alt="Students in Science Laboratory">
+            </div>
+            <div class="news-body">
+              <div class="news-date"><i class="fa-regular fa-calendar"></i> May 28, 2026</div>
+              <h3 class="news-title">Annual STEM & Robotics Exhibition Showcases Innovations</h3>
+              <p class="news-desc">Our students presented ground-breaking science projects, AI experiments, and robotics models at the Annual STEM Exhibition this year.</p>
+              <a href="academics.html" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+          
+          <!-- News Card 3 -->
+          <article class="news-card" id="newsCard3">
+            <div class="news-image">
+              <span class="news-tag">Sports</span>
+              <img src="images/sports.png" alt="School Football Ground">
+            </div>
+            <div class="news-body">
+              <div class="news-date"><i class="fa-regular fa-calendar"></i> May 10, 2026</div>
+              <h3 class="news-title">Aura Crest Athletics Team Wins Football Cup</h3>
+              <p class="news-desc">The Aura Crest Wolves displayed outstanding performance in the inter-school athletic tournament, bringing home the regional football championship trophy.</p>
+              <a href="academics.html" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title" id="testimonialsTitle">Parent & Student Voices</h2>
+          <p class="section-subtitle" id="testimonialsSub">Read what our community members say about their experience at Aura Crest Academy.</p>
+        </div>
+        <div class="testimonials-slider" id="testimonialsSlider">
+          <div class="testimonial-slide" id="testimonialSlide1">
+            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="quote-text">"Sending our daughter to Aura Crest Academy was the best decision we made. The teachers are incredibly supportive, and the curriculum has challenged her to think beyond textbooks."</p>
+            <div class="testimonial-author">
+              <div class="author-name">Dr. Helen Carter</div>
+              <div class="author-role">Parent of Sarah Carter (Grade 10)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-col" id="footerColAbout">
+        <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">
+          <div class="logo-icon" style="color: #0B132B;">A</div>
+          <div class="logo-text" style="color: #F8FAFC;">Aura Crest <span>Academy</span></div>
+        </a>
+        <p>Aura Crest Academy is a global community of thinkers and innovators. We strive to provide premium education that inspires excellence and character.</p>
+        <div class="social-links" id="footerSocials">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col" id="footerColLinks">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Our School</a></li>
+          <li><a href="academics.html">Academic Programs</a></li>
+          <li><a href="admissions.html">Admission Procedure</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="admissions.html">Apply Online</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col" id="footerColContact">
+        <h4>Contact Us</h4>
+        <ul class="footer-contact">
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>1024 Academy Heights Boulevard,<br>Crestwood City, CW 54203</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <span>+1 (555) 123-4567<br>+1 (555) 123-4568</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <span>admissions@auracrest.edu<br>info@auracrest.edu</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <div id="footerCopy">&copy; 2026 Aura Crest Academy. All rights reserved. Built for showcase.</div>
+      <div class="footer-bottom-links" id="footerLegal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>
